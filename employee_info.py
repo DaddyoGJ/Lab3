@@ -8,6 +8,12 @@ employee_data = [
     {"name": "Peter", "age": 40, "department": "Sales", "salary": 60000}
 ]
 
+def sort_employee_data(sortkey):
+    templist = employee_data.copy()
+    templist.sort(key=lambda x: x[sortkey])
+    return templist
+
+
 def get_employees_by_age_range(age_lower_limit, age_upper_limit):
     result = []
 
@@ -62,6 +68,7 @@ def display_main_menu():
     print("2 - Display average salary")
     print("3 - Display employee within age range")
     print("4 - Display employee in a department")
+    print("5 - Display Sorted records according to sort key")
 
 
     print("Q - Quit")
@@ -86,6 +93,12 @@ def display_main_menu():
         department = input("Name of Department = ")
         employee_info = get_employees_by_dept(department)
         display_records(employee_info)
+
+    elif option == '5':
+        #Ask for the key to be used for sorting
+        sortkey = input("Enter key for sorting = ")
+        newlist = sort_employee_data(sortkey)
+        display_records(newlist)
 
     elif option == 'Q':
         quit()
