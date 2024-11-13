@@ -32,12 +32,13 @@ def calculate_average_salary():
 
     return average
 
-def get_employees_by_dept(department):
-    result = []
-
+def get_employees_by_dept(targetDept):
+    result = [] #empty list to be filled in with dictionaries
     # Add your implementation from here
-
-
+    for everyDictionary in employee_data:
+        if everyDictionary["department"] == targetDept:
+            result.append(everyDictionary)
+    #
     return result
 
 def display_all_records():
